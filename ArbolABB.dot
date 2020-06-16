@@ -1,0 +1,24 @@
+digraph ArbolABB { 
+node[shape=circle]
+nodo5 [ label = " 5"];
+nodo10 [ label = " 10"];
+nodo6 [ label = " 6"];
+nodo7 [ label = " 7"];
+nodo15 [ label = " 15"];
+nodo20 [ label = " 20"];
+nodo25 [ label = " 25"];
+nodo5 [ label = " 5"];
+nodo10 [ label = " 10"];
+nodo6 [ label = " 6"];
+nodo7 [ label = " 7"];
+nodo15 [ label = " 15"];
+nodo20 [ label = " 20"];
+nodo25 [ label = " 25"];
+nodo5: c1->nodo10;
+nodo10: c0->nodo6;
+nodo10: c1->nodo15;
+nodo6: c1->nodo7;
+nodo15: c1->nodo20;
+nodo20: c1->nodo25;
+
+}

@@ -1,0 +1,17 @@
+digraph ArbolAVL { 
+node[shape=circle]
+nodo10 [ label = " 10"];
+nodo6 [ label = " 6"];
+nodo5 [ label = " 5"];
+nodo7 [ label = " 7"];
+nodo20 [ label = " 20"];
+nodo15 [ label = " 15"];
+nodo25 [ label = " 25"];
+nodo10: c0->nodo6;
+nodo10: c1->nodo20;
+nodo6: c0->nodo5;
+nodo6: c1->nodo7;
+nodo20: c0->nodo15;
+nodo20: c1->nodo25;
+
+}
