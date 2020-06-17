@@ -1,24 +1,27 @@
 digraph ArbolABB { 
 node[shape=circle]
-nodo5 [ label = " 5"];
-nodo10 [ label = " 10"];
-nodo6 [ label = " 6"];
-nodo7 [ label = " 7"];
-nodo15 [ label = " 15"];
-nodo20 [ label = " 20"];
-nodo25 [ label = " 25"];
-nodo5 [ label = " 5"];
-nodo10 [ label = " 10"];
-nodo6 [ label = " 6"];
-nodo7 [ label = " 7"];
-nodo15 [ label = " 15"];
-nodo20 [ label = " 20"];
-nodo25 [ label = " 25"];
-nodo5: c1->nodo10;
-nodo10: c0->nodo6;
-nodo10: c1->nodo15;
-nodo6: c1->nodo7;
-nodo15: c1->nodo20;
-nodo20: c1->nodo25;
+nodo2054804325 [ label = " popo"];
+nodo1437558669 [ label = " caca"];
+nodo2061934431 [ label = " casa"];
+nodo1173890897 [ label = " omar"];
+nodo1907238512 [ label = " luis"];
+nodo1595126983 [ label = " robo"];
+nodo297911325 [ label = " rabo"];
+nodo352828379 [ label = " sis"];
+nodo2054804325 [ label = " popo"];
+nodo1437558669 [ label = " caca"];
+nodo2061934431 [ label = " casa"];
+nodo1173890897 [ label = " omar"];
+nodo1907238512 [ label = " luis"];
+nodo1595126983 [ label = " robo"];
+nodo297911325 [ label = " rabo"];
+nodo352828379 [ label = " sis"];
+nodo2054804325: c0->nodo1437558669;
+nodo2054804325: c1->nodo1595126983;
+nodo1437558669: c1->nodo2061934431;
+nodo2061934431: c1->nodo1173890897;
+nodo1173890897: c0->nodo1907238512;
+nodo1595126983: c0->nodo297911325;
+nodo1595126983: c1->nodo352828379;
 
 }

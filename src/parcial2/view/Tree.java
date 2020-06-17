@@ -5,6 +5,11 @@
  */
 package parcial2.view;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import parcial2.helper.GenerateReport;
 import parcial2.node.ABBNode;
 import parcial2.node.AVLNode;
@@ -150,22 +155,27 @@ public class Tree extends javax.swing.JFrame {
         checkTree();
         report = new GenerateReport();
         if(!valuesTxt.getText().equals("")){
-            String[] values  = valuesTxt.getText().split(",");
-            for(String element:values){
-               try{
-                   Integer x = Integer.valueOf(element.trim());
-                    if(avl){
-                        root = avlTree.insert(root, x);
-                    }else if(abb){
-                        abb_root = abbTree.insert(abb_root, x);
+            try {
+                String[] values  = valuesTxt.getText().split(",");
+                for(String element:values){
+                    Comparable x;
+                    try{
+                        try{x = Integer.valueOf(element.trim());}catch(Exception e){x = element.trim();}
+                        if(avl){
+                            root = avlTree.insert(root, x);
+                        }else if(abb){
+                            abb_root = abbTree.insert(abb_root, x);
+                        }
+                        System.out.println("Valor ingresado correctamente");
+                    }catch(Exception e){
+                        System.out.println("Ocurrio un error al ingresar los datos");
                     }
-                    System.out.println("Valor ingresado correctamente");
-               }catch(Exception e){
-                   System.out.println("Ocurrio un error al ingresar los datos");
-               } 
+                }
+                
+                generarRecorridos();
+            } catch (IOException ex) { 
+                Logger.getLogger(Tree.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            generarRecorridos();
         }
     }//GEN-LAST:event_generateBtnActionPerformed
 
@@ -173,7 +183,9 @@ public class Tree extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_typeCbActionPerformed
     
-    private void generarRecorridos(){
+    private void generarRecorridos() throws IOException{
+        File archivo;
+        Desktop ejecutar = Desktop.getDesktop();
         if(avl){
             avlTree.postOrder(root);
             postOrderLbl.setText(avlTree.getContenido());
@@ -185,6 +197,7 @@ public class Tree extends javax.swing.JFrame {
             preOrderLbl.setText(avlTree.getContenido());
             avlTree.setContenido("");
             report.generate("ArbolAVL", avlTree.printTree(root));
+            archivo = new File("ArbolAVL.png");
         }else{
             abbTree.postOrder(abb_root);
             postOrderLbl.setText(abbTree.getContent());
@@ -196,8 +209,9 @@ public class Tree extends javax.swing.JFrame {
             preOrderLbl.setText(abbTree.getContent());
             abbTree.setContent("");
             report.generate("ArbolABB", abbTree.graph(abb_root));
+            archivo = new File("ArbolABB.png");       
         }
-        
+        ejecutar.open(archivo);
     }
     
     private void cleanFields(){

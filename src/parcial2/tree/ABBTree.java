@@ -85,7 +85,7 @@ public class ABBTree {
         if(root == null){
             return chain;
         }
-        chain += "nodo" + root.getData().hashCode() + " [ label = \" " + root.getData().toString() + "\"];\n";
+        chain += "nodo" + root.hashCode() + " [ label = \" " + root.getData().toString() + "\"];\n";
         chain = Branch(root.getLeft(), chain);
         chain = Branch(root.getRight(), chain);
         return chain;
@@ -96,10 +96,10 @@ public class ABBTree {
             return chain;
         }
         if(root.getLeft() != null){
-            chain += "nodo" + root.getData().hashCode() + ": c0->nodo" + root.getLeft().getData().hashCode() + ";\n";
+            chain += "nodo" + root.hashCode() + ": c0->nodo" + root.getLeft().hashCode() + ";\n";
         }
         if(root.getRight() != null){
-            chain += "nodo" + root.getData().hashCode() + ": c1->nodo" + root.getRight().getData().hashCode() + ";\n";
+            chain += "nodo" + root.hashCode() + ": c1->nodo" + root.getRight().hashCode() + ";\n";
         }
         chain = Children(root.getLeft(), chain);
         chain = Children(root.getRight(), chain);

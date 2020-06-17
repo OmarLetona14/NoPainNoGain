@@ -74,9 +74,11 @@ public class AVLTree {
             if (value.compareTo(node.getValue()) < 0)
                 
                 node.left  = insert(node.left, value);
-            else
+            else if(value.compareTo(node.getValue()) > 0)
                 node.right = insert(node.right, value);
-
+            else 
+                node.left  = insert(node.left, value);
+                
             /* 2. Update height of this ancestor node */
             node.height = Math.max(height(node.left), height(node.right)) + 1;
 
@@ -427,7 +429,7 @@ public class AVLTree {
         if(root == null){
             return chain;
         }
-        chain += "nodo" + root.value.toString() + " [ label = \" " + root.value.toString() + "\"];\n";
+        chain += "nodo" + root.hashCode() + " [ label = \" " + root.value.toString() + "\"];\n";
         chain = Branch(root.left, chain);
         chain = Branch(root.right, chain);
         return chain;
@@ -438,10 +440,10 @@ public class AVLTree {
             return chain;
         }
         if(root.left != null){
-            chain += "nodo" + root.value.toString() + ": c0->nodo" + root.left.value.toString() + ";\n";
+            chain += "nodo" + root.hashCode() + ": c0->nodo" + root.left.hashCode() + ";\n";
         }
         if(root.right != null){
-            chain += "nodo" + root.value.toString()  + ": c1->nodo" + root.right.value.toString() + ";\n";
+            chain += "nodo" + root.hashCode()  + ": c1->nodo" + root.right.hashCode() + ";\n";
         }
         chain = Children(root.left, chain);
         chain = Children(root.right, chain);

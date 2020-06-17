@@ -1,17 +1,23 @@
 digraph ArbolAVL { 
 node[shape=circle]
-nodo10 [ label = " 10"];
-nodo6 [ label = " 6"];
-nodo5 [ label = " 5"];
-nodo7 [ label = " 7"];
-nodo20 [ label = " 20"];
-nodo15 [ label = " 15"];
-nodo25 [ label = " 25"];
-nodo10: c0->nodo6;
-nodo10: c1->nodo20;
-nodo6: c0->nodo5;
-nodo6: c1->nodo7;
-nodo20: c0->nodo15;
-nodo20: c1->nodo25;
+nodo1857481430 [ label = " 25"];
+nodo957391171 [ label = " 20"];
+nodo1727283576 [ label = " 15"];
+nodo1062529055 [ label = " 24"];
+nodo1726829945 [ label = " 63"];
+nodo1514928734 [ label = " 26"];
+nodo519086062 [ label = " 26"];
+nodo108824639 [ label = " 32"];
+nodo171332372 [ label = " 80"];
+nodo254460166 [ label = " 91"];
+nodo1857481430: c0->nodo957391171;
+nodo1857481430: c1->nodo1726829945;
+nodo957391171: c0->nodo1727283576;
+nodo957391171: c1->nodo1062529055;
+nodo1726829945: c0->nodo1514928734;
+nodo1726829945: c1->nodo171332372;
+nodo1514928734: c0->nodo519086062;
+nodo1514928734: c1->nodo108824639;
+nodo171332372: c1->nodo254460166;
 
 }
